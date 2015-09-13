@@ -1,5 +1,4 @@
  //mui初始化
-mui.init();
 var subpages = ['./html/mainPage.html', './html/mainPage2.html'];
 var subpage_style = {
 	top: '46px',

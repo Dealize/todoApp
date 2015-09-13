@@ -54,7 +54,7 @@
 	</head>
 
 		<body ng-controller="todoListController as todos">
-		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<ul id="OA_task_2">
 					<li class="mui-table-view-cell " 
@@ -86,11 +86,29 @@
 			</div>	
 			
 			
-		
 		<script src="../js/mui.min.js"></script>
 		<script>
-			 mui.init();
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					}
+				}
+			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+                setTimeout(function() {
+                    window.location.reload();
+                      mui.toast("刷新完成.");
+                    mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+                }, 1000);
+            }
 		</script>
+		<script src="../js/mui.min.js"></script>
 		<script src="../js/angular.min.js"></script>
 		<script src="../js/Widdog.js" ></script>
 		<script src="../js/app.js"></script>

@@ -128,10 +128,14 @@ angular
 			pullRefresh: {
 				container: '#pullrefresh',
 				down: {
+					contentdown : "下拉可以刷新",
+					contentover : "释放立即刷新",
+					 contentrefresh : "正在刷新...",
 					callback: pulldownRefresh
 				},
 			}
 		});
+        
 		/**
 		 * 下拉刷新具体业务实现
 		 */
