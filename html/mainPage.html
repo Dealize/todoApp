@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+	<head >
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #fff;
+			}
+			.title {
+				padding: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="newTodoController as newTodo">
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 0px;">
+				<form class="mui-input-group"style="margin-top:100px;">
+					<div class="mui-input-row" style="height: 60px;padding-top:10px">
+						<input id="search" ng-model="newTodo.data.newTodoName" type="text" class="mui-input-speech mui-input-clear"style="text-align: center;font-size:20px" placeholder="ToDo Name">
+						<span class="mui-icon mui-icon-speech" style="top: 20px;"></span>	
+					</div>
+					<div class="mui-content-padded">
+				        <a type="button" ng-model="newTodo.data.newTodoState" ng-click="newTodo.newTodoSubmit('a',newTodo.data)" class="mui-btn mui-btn-danger mui-btn-block mui-btn-outlined">紧急</a>
+				        <a type="button" ng-model="newTodo.data.newTodoState" ng-click="newTodo.newTodoSubmit('b',newTodo.data)" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined">一般</a>
+				        <a type="button" ng-model="newTodo.data.newTodoState" ng-click="newTodo.newTodoSubmit('c',newTodo.data)" class="mui-btn mui-btn-success mui-btn-block mui-btn-outlined">不紧急</a>
+				    </div>
+				</form>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+			mui.init();
+			 //语音识别完成事件
+			document.getElementById("search").addEventListener('recognized', function(e) {
+				console.log(e.detail.value);
+			});
+		</script>
+		
+		<script src="../js/angular.min.js"></script>
+		<script src="../js/Widdog.js" ></script>
+		<script src="../js/app.js"></script>
+		
+	</body>
+	</body>
+</html>
